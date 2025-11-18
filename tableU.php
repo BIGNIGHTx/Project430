@@ -41,7 +41,7 @@ if (isset($_GET['table_id'])) {
             <li><a href="tableU.php">🪑 Table</a></li>
             
             <li><a href="OrderUi.php">🛒 Order</a></li>
-            <li><a href="Receipt.php.php">🧾 Receipt</a></li>
+            <li><a href="Receipt.php">🧾 Receipt</a></li>
         </ul>
     </nav>
 
