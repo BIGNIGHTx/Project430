@@ -1,0 +1,742 @@
+/* Table Management Specific Styles */
+
+/* ===== Table Grid Container ===== */
+.table-grid {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: transparent; /* พื้นหลังโปร่งใส */
+}
+
+/* ซ่อน table และใช้ tbody เป็น grid */
+.table-grid .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent; /* พื้นหลังโปร่งใส */
+}
+
+.table-grid tbody {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* แสดง 4 คอลัมน์ */
+    gap: 2rem;
+    width: 100%;
+    background: transparent; /* พื้นหลังโปร่งใส */
+}
+
+/* ===== แปลง tr เป็นการ์ด ===== */
+.table-grid tr {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* แถบสีด้านบนการ์ด */
+.table-grid tr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(135deg, #a8a8a8 0%, #8c8c8c 100%);
+}
+
+/* เอฟเฟกต์แสงเมื่อ hover */
+.table-grid tr::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.table-grid tr:hover::after {
+    opacity: 1;
+}
+
+/* Hover effect สำหรับการ์ด */
+.table-grid tr:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: #a8a8a8;
+}
+
+/* ===== แปลง td เป็นเนื้อหาในการ์ด ===== */
+.table-grid td {
+    display: block;
+    padding: 0.8rem 0;
+    border: none;
+    width: 100%;
+}
+
+/* td ที่ 1 - ชื่อโต๊ะ (Table Number) */
+.table-grid td:nth-child(1) {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+
+/* เพิ่มไอคอนโต๊ะก่อนชื่อ */
+.table-grid td:nth-child(1)::before {
+    content: '🪑';
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* td ที่ 2 - จำนวนที่นั่ง (Capacity) */
+.table-grid td:nth-child(2) {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* เพิ่มไอคอนคนก่อนจำนวนที่นั่ง */
+.table-grid td:nth-child(2)::before {
+    content: '👥 Capacity: ';
+    font-weight: 600;
+}
+
+/* td ที่ 3 - สถานะ (Status) */
+.table-grid td:nth-child(3) {
+    display: inline-block;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: auto;
+}
+
+/* td ที่ 4 - ปุ่มแก้ไข/ลบ */
+.table-grid td:nth-child(4) {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* ปุ่ม Action */
+.table-grid .action-btn {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.table-grid .edit-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: #fff;
+}
+
+.table-grid .edit-btn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1c5a85 100%);
+    transform: scale(1.05);
+}
+
+.table-grid .delete-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: #fff;
+}
+
+.table-grid .delete-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    transform: scale(1.05);
+}
+
+/* ===== สีตามสถานะ (ตรวจจากข้อความ) ===== */
+
+/* ถ้า td ที่ 3 มีข้อความ available */
+.table-grid tr:has(td:nth-child(3):is([data-status="available"])) {
+    border-color: #4CAF50;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+}
+
+.table-grid tr:has(td:nth-child(3):is([data-status="available"]))::before {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+.table-grid tr:has(td:nth-child(3):is([data-status="available"])) td:nth-child(3) {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: #fff;
+}
+
+/* ถ้า td ที่ 3 มีข้อความ occupied */
+.table-grid tr:has(td:nth-child(3):is([data-status="occupied"]))::before {
+    background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+}
+
+.table-grid tr:has(td:nth-child(3):is([data-status="occupied"])) {
+    border-color: #f44336;
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.15);
+}
+
+.table-grid tr:has(td:nth-child(3):is([data-status="occupied"])) td:nth-child(3) {
+    background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+    color: #fff;
+}
+
+/* ถ้า td ที่ 3 มีข้อความ reserved */
+.table-grid tr:has(td:nth-child(3):is([data-status="reserved"]))::before {
+    background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+}
+
+.table-grid tr:has(td:nth-child(3):is([data-status="reserved"])) {
+    border-color: #FFC107;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.15);
+}
+
+.table-grid tr:has(td:nth-child(3):is([data-status="reserved"])) td:nth-child(3) {
+    background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+    color: #fff;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1200px) {
+    .table-grid tbody {
+        grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์สำหรับหน้าจอกลาง */
+    }
+}
+
+@media (max-width: 900px) {
+    .table-grid tbody {
+        grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์สำหรับ tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .table-grid tbody {
+        grid-template-columns: 1fr; /* 1 คอลัมน์สำหรับมือถือ */
+        gap: 1.5rem;
+    }
+    
+    .table-grid {
+        padding: 1rem;
+    }
+    
+    .table-grid tr {
+        padding: 1.5rem 1rem;
+    }
+    
+    .table-grid td:nth-child(1) {
+        font-size: 2rem;
+    }
+    
+    .table-grid td:nth-child(1)::before {
+        font-size: 3rem;
+    }
+}
+
+/* ===== Statistics Cards ===== */
+.stats-container {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+
+/* เพิ่มไอคอนโต๊ะก่อนชื่อ */
+.table-grid td.card-table-number::before {
+    content: '🪑';
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* td ที่ 2 - จำนวนที่นั่ง (Capacity) */
+.table-grid td.card-capacity {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* เพิ่มไอคอนคนก่อนจำนวนที่นั่ง */
+.table-grid td.card-capacity::before {
+    content: '👥 Capacity: ';
+    font-weight: 600;
+}
+
+/* td ที่ 3 - สถานะ (Status) */
+.table-grid td.card-status {
+    display: inline-block;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: auto;
+}
+
+/* ===== สีสถานะตาม class ===== */
+
+/* สถานะ Available (ว่าง) - สีเขียว */
+.table-grid tr.status-available {
+    border-color: #4CAF50;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+}
+
+.table-grid tr.status-available::before {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+.table-grid tr.status-available td.card-status {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: #fff;
+}
+
+.table-grid tr.status-available:hover {
+    border-color: #45a049;
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.25);
+}
+
+/* สถานะ Occupied (ไม่ว่าง) - สีแดง */
+.table-grid tr.status-occupied {
+    border-color: #f44336;
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.15);
+}
+
+.table-grid tr.status-occupied::before {
+    background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+}
+
+.table-grid tr.status-occupied td.card-status {
+    background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+    color: #fff;
+}
+
+.table-grid tr.status-occupied:hover {
+    border-color: #da190b;
+    box-shadow: 0 15px 35px rgba(244, 67, 54, 0.25);
+}
+
+/* สถานะ Reserved (จอง) - สีเหลือง */
+.table-grid tr.status-reserved {
+    border-color: #FFC107;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.15);
+}
+
+.table-grid tr.status-reserved::before {
+    background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+}
+
+.table-grid tr.status-reserved td.card-status {
+    background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+    color: #fff;
+}
+
+.table-grid tr.status-reserved:hover {
+    border-color: #FFA000;
+    box-shadow: 0 15px 35px rgba(255, 193, 7, 0.25);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .table-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .table-grid tr.table-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .table-grid td.card-table-number {
+        font-size: 2rem;
+    }
+    
+    .table-grid td.card-table-number::before {
+        font-size: 3rem;
+    }
+}
+
+/* ===== Statistics Cards ===== */
+.stats-container {
+            background: transparent;
+            border-radius: 0;
+            padding: 2rem;
+            box-shadow: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .table-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+        }
+
+        /* Status Colors */
+        .table-card.available {
+            border-color: #4CAF50;
+        }
+
+        .table-card.available::before {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+        }
+
+        .table-card.occupied {
+            border-color: #f44336;
+        }
+
+        .table-card.occupied::before {
+            background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+        }
+
+        .table-card.reserved {
+            border-color: #FFC107;
+        }
+
+        .table-card.reserved::before {
+            background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+        }
+
+        .table-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .table-number {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .table-info {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .table-capacity {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .table-status {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-available {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: #fff;
+        }
+
+        .status-occupied {
+            background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+            color: #fff;
+        }
+
+        .status-reserved {
+            background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+            color: #fff;
+        }
+
+        .table-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .status-btn {
+            padding: 0.7rem 1rem;
+            border: 2px solid;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .status-btn.btn-available {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+
+        .status-btn.btn-available:hover {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: #fff;
+        }
+
+        .status-btn.btn-occupied {
+            border-color: #f44336;
+            color: #f44336;
+        }
+
+        .status-btn.btn-occupied:hover {
+            background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+            color: #fff;
+        }
+
+        .status-btn.btn-reserved {
+            border-color: #FFC107;
+            color: #FFA000;
+        }
+
+        .status-btn.btn-reserved:hover {
+            background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+            color: #fff;
+        }
+
+        .table-manage-btns {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-edit, .btn-delete-table {
+            flex: 1;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #a8a8a8 0%, #8c8c8c 100%);
+            color: #fff;
+        }
+
+        .btn-edit:hover {
+            background: linear-gradient(135deg, #8c8c8c 0%, #707070 100%);
+            transform: scale(1.05);
+        }
+
+        .btn-delete-table {
+            background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+            color: #fff;
+        }
+
+        .btn-delete-table:hover {
+            background: linear-gradient(135deg, #da190b 0%, #c41408 100%);
+            transform: scale(1.05);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .legend-color.green {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+        }
+
+        .legend-color.red {
+            background: linear-gradient(135deg, #f44336 0%, #da190b 100%);
+        }
+
+        .legend-color.yellow {
+            background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card.stat-available {
+            border-color: #4CAF50;
+        }
+
+        .stat-card.stat-occupied {
+            border-color: #f44336;
+        }
+
+        .stat-card.stat-reserved {
+            border-color: #FFC107;
+        }
+
+        .stat-card.stat-total {
+            border-color: #a8a8a8;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        
+/* ตั้งค่าพื้นฐานสำหรับตาราง */
+.product-table {
+    width: 100%;
+    border-collapse: collapse; /* ยุบเส้นขอบตาราง */
+    font-family: sans-serif;
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
+}
+
+/* ส่วนหัวของตาราง */
+.product-table thead th {
+    background-color: #f7f7f7; /* สีพื้นหลังของส่วนหัว */
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 15px 10px; /* ระยะห่างภายในเซลล์ */
+    border-bottom: 2px solid #ddd; /* เส้นขอบด้านล่าง */
+}
+
+/* เซลล์ข้อมูลและเซลล์หัวตาราง */
+.product-table th, .product-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee; /* เส้นขอบแบ่งแถว */
+}
+
+/* แถวข้อมูล */
+.product-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+/* แถวสลับสี (ถ้าต้องการให้ดูง่ายขึ้น) */
+/* .product-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+} */
+
+/* เมื่อวางเมาส์เหนือแถว */
+/* .product-table tbody tr:hover {
+    background-color: #f0f0f0;
+} */
+
+/* การจัดแนวสำหรับคอลัมน์ราคาและจำนวน */
+.product-table td:nth-child(2),
+.product-table td:nth-child(3) {
+    text-align: left; /* สามารถเปลี่ยนเป็น right หรือ center ได้ตามต้องการ */
+}
+
+/* ปุ่ม Action */
+.action-btn {
+    border: none;
+    padding: 8px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+/* ปุ่ม "แก้ไข" (สีเหลือง) */
+.edit-btn {
+    background-color: #ffc107; /* สีเหลือง */
+    color: #333;
+}
+
+/* ปุ่ม "ลบ" (สีแดง) */
+.delete-btn {
+    background-color: #dc3545; /* สีแดง */
+    color: white;
+}

@@ -1,0 +1,135 @@
+/* Form Wrapper */
+.form-wrapper {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 0 2rem 4rem;
+}
+
+/* Form Container */
+.form-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid #e0e0e0;
+}
+
+/* Form Title */
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form */
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid #d0d0d0;
+    border-radius: 10px;
+    background: #fff;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #a8a8a8;
+    box-shadow: 0 0 0 4px rgba(168, 168, 168, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #95a5a6;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Buttons */
+.btn-submit,
+.btn-cancel {
+    flex: 1;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: #fff;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.btn-cancel {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    color: #fff;
+}
+
+.btn-cancel:hover {
+    background: linear-gradient(135deg, #7f8c8d 0%, #6c7a89 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(127, 140, 141, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 0 1rem 2rem;
+    }
+    
+    .form-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-title {
+        font-size: 1.6rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
