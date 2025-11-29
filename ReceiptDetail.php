@@ -302,7 +302,6 @@ $orderDetails = $stmtDetails->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <ul class="nav-menu">
             <li><a href="index.php">🏠 Home</a></li>
-            <li><a href="employee.php">👨‍🍳 Employee</a></li>
             <li><a href="tableU.php">🪑 Table</a></li>
             <li><a href="OrderUi.php">🛒 Order</a></li>
             <li><a href="Receipt.php">🧾 Receipt</a></li>

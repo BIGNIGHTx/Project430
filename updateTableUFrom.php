@@ -32,7 +32,6 @@ if (isset($_GET['table_id'])) {
         </div>
         <ul class="nav-menu">
             <li><a href="index.php">🏠 Home</a></li>
-            <li><a href="employee.php">👨‍🍳 Employee</a></li>
             <li><a href="tableU.php">🪑 Table</a></li>
             <li><a href="order.php">🛒 Order</a></li>
             <li><a href="receipt.php">🧾 Receipt</a></li>
