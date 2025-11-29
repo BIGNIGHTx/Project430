@@ -51,7 +51,7 @@ require('DBConnect.php');  //เชื่อมต่อฐานข้อมู
 
     <!-- Hero Section with Restaurant Image -->
     <div class="hero-section" style="background: linear-gradient(135deg, #2c3e50 0%, #4a5f7f 100%); padding: 4rem 2rem; text-align: center;">
-        <h2 class="hero-title" style="color: white; font-size: 3rem; margin-bottom: 1rem;">Welcome to Silver Restaurant</h2>
+        <h2 class="hero-title" style="color: white; font-size: 3rem; margin-bottom: 1rem;">Welcome to Restaurant MS</h2>
         <p class="hero-subtitle" style="color: #d3d3d3; font-size: 1.3rem; margin-bottom: 3rem;">Experience culinary excellence in an elegant atmosphere</p>
         
         <!-- Restaurant Images Gallery -->
