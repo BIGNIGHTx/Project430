@@ -9,13 +9,37 @@ require('DBConnect.php');  //เชื่อมต่อฐานข้อมู
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Management System</title>
     <link rel="stylesheet" href="ref.css">
+    <style>
+        /* Hover effects for restaurant cards */
+        .restaurant-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .restaurant-card img {
+            transition: transform 0.3s ease;
+        }
+        
+        .restaurant-card:hover img {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 
 
 <body>
     <nav class="navbar">
         <div class="nav-brand">
-            <h1>🍽️ Silver Restaurant</h1>
+            <h1>🍽️ Restaurant MS</h1>
         </div>
         <ul class="nav-menu">
             <li><a href="tableU.php">🪑 Table</a></li>
@@ -34,9 +58,10 @@ require('DBConnect.php');  //เชื่อมต่อฐานข้อมู
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem;">
             
             <!-- Image 1: Elegant Dining -->
-            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s;">
-                <div style="background: linear-gradient(135deg, #c0c0c0, #e8e8e8); height: 250px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
-                    🍽️
+            <div class="restaurant-card">
+                <div style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
+                    <img src="https://media.istockphoto.com/id/1151361779/photo/luxury-banquet-hall-in-hotel-dinner-table-for-special-guests.webp?a=1&b=1&s=612x612&w=0&k=20&c=asTYsinSREZiQCgiy8_MCy6H0DAy8oRVuKos13zU_uE=" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 1.5rem; text-align: center;">
                     <h3 style="color: #333; margin-bottom: 0.5rem;">Elegant Dining</h3>
@@ -45,9 +70,10 @@ require('DBConnect.php');  //เชื่อมต่อฐานข้อมู
             </div>
 
             <!-- Image 2: Gourmet Cuisine -->
-            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s;">
-                <div style="background: linear-gradient(135deg, #a8a8a8, #d3d3d3); height: 250px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
-                    👨‍🍳
+            <div class="restaurant-card">
+                <div style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hlZnxlbnwwfHwwfHx8MA%3D%3D" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 1.5rem; text-align: center;">
                     <h3 style="color: #333; margin-bottom: 0.5rem;">Gourmet Cuisine</h3>
@@ -56,9 +82,10 @@ require('DBConnect.php');  //เชื่อมต่อฐานข้อมู
             </div>
 
             <!-- Image 3: Premium Ingredients -->
-            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s;">
-                <div style="background: linear-gradient(135deg, #b8b8b8, #e0e0e0); height: 250px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
-                    🥘
+            <div class="restaurant-card">
+                <div style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
+                    <img src="https://images.unsplash.com/photo-1750943079478-ae516c4133cd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFByZW1pdW0lMjBJbmdyZWRpZW50c3xlbnwwfHwwfHx8MA%3D%3D" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 1.5rem; text-align: center;">
                     <h3 style="color: #333; margin-bottom: 0.5rem;">Premium Ingredients</h3>
@@ -67,9 +94,10 @@ require('DBConnect.php');  //เชื่อมต่อฐานข้อมู
             </div>
 
             <!-- Image 4: Exceptional Service -->
-            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s;">
-                <div style="background: linear-gradient(135deg, #c8c8c8, #f0f0f0); height: 250px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
-                    ⭐
+            <div class="restaurant-card">
+                <div style="width: 100%; height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f0f0f0;">
+                    <img src="https://media.istockphoto.com/id/1364946137/photo/businessman-holding-and-showing-the-best-quality-assurance-with-golden-five-stars-for.webp?a=1&b=1&s=612x612&w=0&k=20&c=Y8XgALrxUSw-jWNHeTCUHnieAaPR1hqjv0XaBmA_j94=" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 1.5rem; text-align: center;">
                     <h3 style="color: #333; margin-bottom: 0.5rem;">Exceptional Service</h3>

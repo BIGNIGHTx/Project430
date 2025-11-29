@@ -41,7 +41,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <nav class="navbar">
         <div class="nav-brand">
-            <h1>🍽️ Silver Restaurant</h1>
+            <h1>🍽️ Restaurant MS</h1>
         </div>
         <ul class="nav-menu">
             <li><a href="index.php">🏠 Home</a></li>
